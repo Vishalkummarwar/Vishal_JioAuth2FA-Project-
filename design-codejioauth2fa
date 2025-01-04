@@ -1,0 +1,15 @@
+print address
+    i=1
+    f = open('file_'+ str(i)+".txt",'wb') #open in binary
+    i=i+1
+    while (True):       
+        l = sc.recv(1024)
+        while (l):
+            print l #<--- i can see the data here
+            f.write(l) #<--- here is the issue.. the file is blank
+            l = sc.recv(1024)
+    f.close()
+
+    sc.close()
+
+<version changes v1 and v2 for the same> 
