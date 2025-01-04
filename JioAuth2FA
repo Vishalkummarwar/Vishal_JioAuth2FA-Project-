@@ -1,3 +1,46 @@
 this my second jioauth2fa file for SMS configuration task pending.
 Configuration done by my side please check now 
 
+server.py  >>> Version V5 >>> insert >>
+import socket
+import sys
+s = socket.socket()
+s.bind(("localhost",9999))
+s.listen(10) 
+while True:
+    sc, address = s.accept()
+
+    print address
+    i=1
+    f = open('file_'+ str(i)+".txt",'wb') #open in binary
+    i=i+1
+    while (True):       
+        l = sc.recv(1024)
+        while (l):
+            print l #<--- i can see the data here
+            f.write(l) #<--- here is the issue.. the file is blank
+            l = sc.recv(1024)
+    f.close()
+
+    sc.close()
+
+s.close()
+
+
+
+client.py
+
+import socket
+import sys
+
+s = socket.socket()
+s.connect(("localhost",9999))
+f=open ("test.txt", "rb") 
+l = f.read(1024)
+while (l):
+    print l
+    s.send(l)
+    l = f.read(1024)
+s.close()
+
+
