@@ -1,7 +1,7 @@
 this my second jioauth2fa file for SMS configuration task pending.
 Configuration done by my side please check now 
 
-server.py  >>> Version V5 >>> insert >>
+server.py  >>> Version V5 >>> insert  with jio 
 import socket
 import sys
 s = socket.socket()
